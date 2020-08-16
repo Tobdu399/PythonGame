@@ -1,7 +1,6 @@
 import settings as gs
 import controls
-
-GAME_CHARACTER = "+"
+import obstacle
 
 class Game:
     def __init__(self, x, y, player_character):
@@ -16,25 +15,47 @@ class Game:
     def show_game(self):
         gs.clear()
 
+        bg_color = gs.black_bg
+        border_color = gs.blue
+        player_color = gs.yellow
+        obstacle_color = gs.red
+
         for i in range(0, self.map_height):
             line = ""
-            bg_color = gs.black_bg
-            border_color = gs.blue
-            player_color = gs.yellow
-
             player_in_line = False
+            obstacle_in_line = False
 
             for j, map_piece in enumerate(self.gameboard[i]):
+                for obs in obstacle.obstacles:
+                    if j == obs.x_pos and i == obs.y_pos:
+                        if obs.is_alive:
+                            obstacle_in_line = True
+
+                        # Draw the obstacle
+                        if self.x_pos == obs.x_pos and self.y_pos == obs.y_pos:
+                            obs.is_alive = False
+                        else:
+                            if obs.is_alive:
+                                line += obstacle_color + obs.character + gs.reset + bg_color + border_color
+
                 if j == self.x_pos and i == self.y_pos:
                     player_in_line = True
-                    line += gs.bold + player_color + self.player + gs.reset + bg_color  # Draw the player
-                
-                line += map_piece
+                    
+                    # Draw the player
+                    line += gs.bold + player_color + self.player + gs.reset + bg_color + border_color
 
-            if player_in_line:
-                line = line[:-2]   # Removin the gap that appears when the player is in the line            
-                line += border_color + "|" + gs.reset   # Adding the border back after removing it in the line above
+                else:
+                    line += map_piece
 
+            if player_in_line or obstacle_in_line:
+                line = line[:-2]                        # Removin the gap that appears when the player is in the line
+                line += "|"                           # Adding the border back after removing it in the line above            
+
+            if player_in_line and obstacle_in_line:
+                line = line[:-1]
+                line += "|"
+
+            line += border_color + gs.reset   
             print(bg_color + border_color + line + gs.reset)
         print(f"x:{self.x_pos} y:{self.y_pos}\n")       # Print the player's position                  
 
@@ -44,7 +65,7 @@ class Game:
         self.show_game()
 
 
-game = Game(1, 1, GAME_CHARACTER)  # Player position and character
+game = Game(1, 1, gs.GAME_CHARACTER)  # Player position and character
 
 # Don't change the code below this line
 if __name__ == '__main__':

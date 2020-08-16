@@ -2,8 +2,12 @@
 from pynput.keyboard import Key, Listener, Controller
 import pynput
 import os
+import random
 
 # Varibales:
+GAME_CHARACTER = "+"
+OBSTACLE_CHARACTER = "#"
+
 yellow = "\u001b[33m"
 green = "\u001b[32m"
 blue = "\u001b[36m"
@@ -19,6 +23,7 @@ black_bg = "\u001b[40m"
 bold = "\u001b[1m"
 wrong_file_msg = red + "Please run 'game.py' instead of this file!" + green + "\n\nCurrent file: " + reset
 
+# Gameboard
 gameboard = ["/----------------------------\\",
              "|                            |",
              "|                            |",
