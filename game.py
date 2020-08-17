@@ -70,7 +70,7 @@ class Game:
         self.show_game()
 
 
-game = Game(0.1, 1, gs.GAME_CHARACTER)  # Player position and character (in: settings.py)
+game = Game(1, 1, gs.GAME_CHARACTER)  # Player position and character
 
 #! The game starts only if this file is executed
 #! Don't change the code below this line
