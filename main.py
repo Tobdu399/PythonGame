@@ -4,6 +4,9 @@ import controls
 import obstacle
 from game import game
 
+gs.GAME_CHARACTER = "+"
+gs.OBSTACLE_CHARACTER = "#"
+
 #! The game starts only if this file is executed
 if __name__ == '__main__':
     game.show_game()
