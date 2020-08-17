@@ -1,6 +1,5 @@
 import settings as gs
 obstacles = []
-is_eaten = []
 
 class Obstacle:
     def __init__(self, obstacle_character):
@@ -10,8 +9,10 @@ class Obstacle:
         self.y_pos = gs.random.randint(1, len(gs.gameboard)-2)
         self.is_alive = True
 
-def generate_obstacles(amount): 
-        for _ in range(0, amount):   # Amount of the obstacles (max: the number of rows on the map)
+
+def create_obstacles(amount):
+    if len(obstacles) == 0:
+        for _ in range(0, amount):   # Amount of the obstacles (max: the number of rows on the map) 
             positions = []
             for y in obstacles:
                 positions.append(y.y_pos)
@@ -23,9 +24,10 @@ def generate_obstacles(amount):
                     if obstacle.y_pos not in positions:
                         obstacles.append(obstacle)
                         break
-    else: return
+    else:
+        return
 
-# Don't change the code below this line
+#! Don't change the code below this line
 if __name__ == '__main__':
     print(gs.wrong_file_msg + __file__)
     exit()

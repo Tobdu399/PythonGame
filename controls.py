@@ -2,7 +2,7 @@ import settings as gs
 if __name__ == '__main__':
     print(gs.wrong_file_msg + __file__)
     exit()
-# Don't change the code above this line
+#! Don't change the code above this line
 
 from game import game
 
