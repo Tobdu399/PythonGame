@@ -9,4 +9,4 @@ __GUIDE__
 
 - Close the game by pressing ESC or Ctrl+C
 
-![alt text](https://github.com/tobdu399/PythonGame/blob/master/pythongame.png?raw=true)
+![Python Game](https://github.com/tobdu399/PythonGame/blob/master/Pictures/pythongame.png?raw=true)
