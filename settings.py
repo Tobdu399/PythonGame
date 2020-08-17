@@ -38,7 +38,7 @@ gameboard = ["/----------------------------\\",
 
 # Functions
 def clear():
-    os.system("clear")    
+    os.system("cls")    
 
 # Don't change the code below this line
 if __name__ == '__main__':
