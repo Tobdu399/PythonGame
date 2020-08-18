@@ -1,14 +1,17 @@
 import sourcedefender
 import settings as gs
-from player import player
 import controls
+import food
+from player import player
 
 gs.GAME_CHARACTER = "+"
-gs.FOOD_CHARACTER = "#"
+gs.OBSTACLE_CHARACTER = "#"
 gs.FOOD_AMOUNT = 3
 
 #! Advanced
 gs.CLEAR_COMMAND = "clear"
+gs.SCORE = 0
+gs.ROUND = 0
 
 #! The game starts only if this file is executed
 if __name__ == '__main__':
