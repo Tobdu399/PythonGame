@@ -10,4 +10,8 @@ __GUIDE__
 - Start the game by executing 'main.py' file
 - Close the game by pressing ESC or Ctrl+C
 
+__MODULES (Required!)__
+- pynput (python3 -m pip install pynput)
+- sourcedefender (python3 -m pip install sourcedefender)
+
 ![Python Game](https://github.com/tobdu399/PythonGame/blob/master/Pictures/pythongame.png?raw=true)
