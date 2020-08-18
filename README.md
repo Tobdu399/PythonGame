@@ -11,7 +11,7 @@ __GUIDE__
 - Close the game by pressing ESC or Ctrl+C
 
 __MODULES (Required!)__
-- pynput (python3 -m pip install pynput)
-- sourcedefender (python3 -m pip install sourcedefender)
+- [pynput](https://pypi.org/project/pynput/) (python3 -m pip install pynput)
+- [sourcedefender](https://pypi.org/project/sourcedefender/) (python3 -m pip install sourcedefender)
 
 ![Python Game](https://github.com/tobdu399/PythonGame/blob/master/Pictures/pythongame.png?raw=true)
