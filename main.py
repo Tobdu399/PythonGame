@@ -5,7 +5,7 @@ from player import player
 
 gs.GAME_CHARACTER = "+"
 gs.OBSTACLE_CHARACTER = "#"
-gs.FOOD_AMOUNT = 3
+gs.FOOD_AMOUNT = 5
 
 #! Advanced
 gs.CLEAR_COMMAND = "clear"
