@@ -1,4 +1,3 @@
-import sourcedefender
 import settings as gs
 import controls
 import food
