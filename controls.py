@@ -1,7 +1,7 @@
 if __name__ == '__main__':
     exit()
 #? ^ Had to move that piece of code from the bottom of this file up here
-#?   due to an import error which occurs when the user tries to run this file
+#?   due to an import error which occures when the user tries to run this file
 #! Don't change the code above this line
 
 import settings as gs
@@ -22,6 +22,4 @@ def on_press(key):
 
 def on_release(key):
     if key == gs.Key.esc:
-        gs.clear()
-        gs.GAME = False
-        return False
+        gs.end_game()

@@ -1,4 +1,5 @@
 import settings as gs
+import enemy
 import player
 
 foods = []
@@ -13,6 +14,7 @@ class Food:
 def generate_food(amount):    
     if len(foods) == 0:
         gs.ROUND += 1
+        enemy.increase_speed()
         
         for _ in range(0, amount):
             positions = []

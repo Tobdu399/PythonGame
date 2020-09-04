@@ -9,12 +9,14 @@ import time
 # Varibales:
 PLAYER_CHARACTER = "+"
 FOOD_CHARACTER = "#"
-FOOD_AMOUNT = 3
-ENEMY_AMOUNT = 3
+ENEMY_CHARACTER = ["C", "Ɔ"]
+FOOD_AMOUNT = 5
+ENEMY_AMOUNT = 4
 SCORE = 0
 ROUND = 0
 
 GAME = True
+REFRESH_RATE = 0.5
 
 yellow = "\u001b[33m"
 green = "\u001b[32m"
@@ -35,20 +37,27 @@ enemy_color = magenta
 food_color = red
 
 # Gameboard
-gameboard = ["/----------------------------\\",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "|                            |",
-            "\\----------------------------/",
+gameboard = ["/--------------------------------\\",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "|                                |",
+            "\\--------------------------------/",
             ]
 
 # Functions
 clear = lambda: os.system("clear" if os.name!='nt' else "cls")
+
+def end_game():
+    global GAME
+    GAME = False
+    
+    clear()
+    exit()
 
 #! Don't change the code below this line
 if __name__ == '__main__':

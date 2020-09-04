@@ -2,7 +2,7 @@ import settings as gs
 import food
 import enemy
 
-class Player:
+class Player:    
     def __init__(self, x, y, player_character):
         self.x_pos = gs.math.ceil(x)     #! } The position must be an integer
         self.y_pos = gs.math.ceil(y)     #! }
@@ -12,11 +12,11 @@ class Player:
         self.map_width = len(self.gameboard[0]) # Get the map's width by the first element in the gameboard list
         self.map_height = len(self.gameboard)
 
-    def show_game(self):
+    def show_game(self):        
         gs.clear()
         
         food.generate_food(gs.FOOD_AMOUNT)
-        enemy.generate_enemies(3)
+        enemy.generate_enemies(gs.ENEMY_AMOUNT)
 
         for i in range(0, self.map_height):
             line = ""
@@ -33,11 +33,14 @@ class Player:
                             map_piece = gs.food_color + food_obj.character + gs.reset + gs.bg_color + gs.border_color                               
 
                 # Enemy
-                for enemy_obj in enemy.enemies:                  
+                for enemy_obj in enemy.enemies:
                     if j == enemy_obj.x_pos and i == enemy_obj.y_pos:
                         if self.x_pos == enemy_obj.x_pos and self.y_pos == enemy_obj.y_pos:
+                            
+                            #! TODO: Game ending
                             enemy.enemies.remove(enemy_obj)
-                            # TODO: health system
+                            gs.end_game()
+                            
                         else:
                             map_piece = gs.enemy_color + enemy_obj.character + gs.reset + gs.bg_color + gs.border_color
 

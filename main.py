@@ -4,17 +4,18 @@ import food
 from player import player
 import enemy
 
-gs.PLAYER_CHARACTER = "+"
+gs.PLAYER_CHARACTER   = "+"
 gs.OBSTACLE_CHARACTER = "#"
-gs.FOOD_AMOUNT = 5
+gs.ENEMY_CHARACTER    = ["C", "Ɔ"]
+gs.FOOD_AMOUNT        = 5
+gs.ENEMY_AMOUNT       = 4
 
-# Advanced
 gs.SCORE = 0
 gs.ROUND = 0
 
 # The game starts only if this file is executed
+listener = gs.Listener(on_press=controls.on_press, on_release=controls.on_release)
 if __name__ == '__main__':
     player.show_game()
-    with gs.Listener(on_press=controls.on_press, on_release=controls.on_release) as listener:
-        gs.threading.Thread(target = enemy.update).start()
-        listener.join()
+    listener.start()
+    gs.threading.Thread(target = enemy.update).start()
