@@ -23,3 +23,4 @@ if __name__ == '__main__':
     player.show_game()
     listener.start()
     gs.threading.Thread(target = enemy.update).start()
+    gs.threading.Thread(target = player.timer).start()

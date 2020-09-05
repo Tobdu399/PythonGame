@@ -60,9 +60,16 @@ class Player:
             print(gs.bg_color + gs.border_color + line + gs.reset)
             
         # Formatting the score to one decimal
+        print(f"Time: {gs.TIME}")
         print(f"{gs.green}Score: {gs.reset}{gs.SCORE:.1f}") #! }
         print(f"{gs.green}Round: {gs.reset}{gs.ROUND}")     #! } Player's score, round, and location
         print(f"x:{self.x_pos} y:{self.y_pos}\n")           #! }
+
+    def timer(self):
+        while gs.GAME:
+            gs.time.sleep(1)
+            gs.TIME += 1
+            self.show_game()
 
     def move(self, x_dir, y_dir):
         self.x_pos += x_dir
