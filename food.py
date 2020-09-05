@@ -28,6 +28,5 @@ def generate_food(amount):
                         foods.append(food)
                         break
 
-#! Don't change the code below this line
 if __name__ == '__main__':
     exit()

@@ -2,6 +2,7 @@ import settings as gs
 import player
 
 enemies = []
+just_spawned = False
 
 class Enemy:
     def __init__(self):
@@ -22,6 +23,7 @@ class Enemy:
         self.x_pos += self.direction
 
 def generate_enemies(amount):
+    global just_spawned
     if len(enemies) == 0:
         for _ in range(0, amount):
             positions = []
@@ -34,16 +36,26 @@ def generate_enemies(amount):
                     if enemy.y_pos not in positions:
                         enemies.append(enemy)
                         break
+        just_spawned = True
 
 def increase_speed():
     if gs.ROUND % 5 == 0:
         if gs.REFRESH_RATE > 0.06:
             gs.REFRESH_RATE -= 0.05
 
-def update():            
-    while gs.GAME:
+def update():
+    global just_spawned
+    while gs.GAME:        
+        if just_spawned:
+            gs.time.sleep(gs.SPAWNING_RATE)
+            just_spawned = False
+        else:
+            gs.time.sleep(gs.REFRESH_RATE)
+            
         for enemy in enemies:
             enemy.move()
-
+            
         player.player.show_game()
-        gs.time.sleep(gs.REFRESH_RATE)
+
+if __name__ == '__main__':
+    exit()

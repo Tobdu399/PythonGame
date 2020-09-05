@@ -17,6 +17,7 @@ ROUND = 0
 
 GAME = True
 REFRESH_RATE = 0.5
+SPAWNING_RATE = 1.5
 
 yellow = "\u001b[33m"
 green = "\u001b[32m"
@@ -35,6 +36,7 @@ border_color = blue
 player_color = yellow
 enemy_color = magenta
 food_color = red
+enemy_spawn_color = yellow
 
 # Gameboard
 gameboard = ["/--------------------------------\\",
@@ -50,15 +52,14 @@ gameboard = ["/--------------------------------\\",
             ]
 
 # Functions
-clear = lambda: os.system("clear" if os.name!='nt' else "cls")
+clear = lambda: os.system("clear" if os.name != ' nt' else "cls")
 
 def end_game():
     global GAME
     GAME = False
-    
+
     clear()
     exit()
 
-#! Don't change the code below this line
 if __name__ == '__main__':
     exit()
