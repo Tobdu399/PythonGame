@@ -1,8 +1,6 @@
-import settings as gs
-import controls
-import food
-from player import player
-import enemy
+import sourcedefender
+from source import settings as gs, controls, food, enemy
+from source.player import player
 
 # Settings
 gs.PLAYER_CHARACTER   = "+"
@@ -14,13 +12,14 @@ gs.ENEMY_AMOUNT       = 4
 # Advanced
 gs.SCORE              = 0
 gs.ROUND              = 0
-gs.REFRESH_RATE       = 0.5
+gs.REFRESH_RATE       = 0.49
 gs.SPAWNING_RATE      = 1.5
 
 # The game starts only if this file is executed
-listener = gs.Listener(on_press=controls.on_press, on_release=controls.on_release)
 if __name__ == '__main__':
+    listener = gs.Listener(on_press=controls.on_press, on_release=controls.on_release)
     player.show_game()
-    listener.start()
-    gs.threading.Thread(target = enemy.update).start()
-    gs.threading.Thread(target = player.timer).start()
+
+    listener.start()                                    # Start the keyboard listener
+    gs.threading.Thread(target = enemy.update).start()  # Update the position of the enemies
+    gs.threading.Thread(target = player.timer).start()  # Start the timer
