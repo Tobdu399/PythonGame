@@ -1,15 +1,14 @@
-import sourcedefender
-from source import settings as gs, controls, food, enemy
-from source.player import player
+from lib import settings as gs, controls, food, enemy
+from lib.player import player
 
 # Settings
 gs.PLAYER_CHARACTER   = "+"
 gs.OBSTACLE_CHARACTER = "#"
-gs.ENEMY_CHARACTER    = ["C", "Ɔ"]
+gs.ENEMY_CHARACTER    = ("C", "Ɔ")
 gs.FOOD_AMOUNT        = 5
 gs.ENEMY_AMOUNT       = 4
 
-# Advanced
+# Advanced settings
 gs.SCORE              = 0
 gs.ROUND              = 0
 gs.REFRESH_RATE       = 0.49
@@ -22,4 +21,3 @@ if __name__ == '__main__':
 
     listener.start()                                    # Start the keyboard listener
     gs.threading.Thread(target = enemy.update).start()  # Update the position of the enemies
-    gs.threading.Thread(target = player.timer).start()  # Start the timer
